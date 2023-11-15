@@ -6,17 +6,17 @@ import numpy as np
 
 def dAdt(A, t, beta, gamma, N):
     """
-    Calculates the derivative of the SIR model with respect to time.
+    Calcule les équations différentielles du modèle SIR en fonction du temps
 
     Args:
-        A (list): A list containing the current values of S, I, and R.
-        t (float): The current time.
-        beta (float): The transmission rate.
-        gamma (float): The recovery rate.
-        N (float): The total population.
+        A (list): Contient les valeurs S, I et R initiales.
+        t (float): Le temps (en jour)
+        beta (float): Le taux de transmission 
+        gamma (float): Le taux de rémission
+        N (float): La taille totale de la population
 
     Returns:
-        list: A list containing the derivatives of S, I, and R with respect to time.
+        list: Contient S, I et R en fonction du temps
     """
     S= A[0]
     I = A[1]
@@ -27,18 +27,30 @@ def dAdt(A, t, beta, gamma, N):
         gamma*I
     ]
 
-times = np.arange(0, 100, 1)
-gamma = 1/10
+# Construit les différentes valeurs pour l'axe des abscisses
+times = np.arange(0, 100, 1) # De 0 à 100 par pas de 1
+
+# Population totale
 N = 1.1e7
-beta = 0.39
-S0, I0, R0 = N-574, 574, 0
+# Probabilité d'être rétablis au jour suivant (t + 1)
+gamma = 1/10
+# Probabilité d'être infecté au jour suivant (t + 1)
+beta = 0.2
+# Quantité de personne infectée initiale et contagieuse
+I0 = 574
+# Quantité de personne susceptible d'être infectée
+S0 = N - I0
+# Quantité de personne rétabli
+R0 = 0
+
 sol = odeint(dAdt, y0=[S0, I0, R0], t=times, args=(beta, gamma, N))
 
-S = sol.T[0]
-I = sol.T[1]
-R = sol.T[2]
+S = sol.T[0] # Personnes susceptible d'être infectées
+I = sol.T[1] # Personnes infectées
+R = sol.T[2] # Personnes rétablies
 
-plt.plot(times, S)
-plt.plot(times, I)
-plt.plot(times, R)
+# Affichage des courbes sur le même graphique
+plt.plot(times, S, label='Susceptibles (non infectée)')
+plt.plot(times, I, label='Infectées')
+plt.plot(times, R, label='Rétablies')
 plt.grid()
