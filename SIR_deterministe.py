@@ -43,6 +43,7 @@ S0 = N - I0
 # Quantité de personne rétabli
 R0 = 0
 
+# Résout les équations différentielles
 sol = odeint(dAdt, y0=[S0, I0, R0], t=times, args=(beta, gamma, N))
 
 S = sol.T[0] # Personnes susceptible d'être infectées
