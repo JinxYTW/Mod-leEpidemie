@@ -1,0 +1,17 @@
+\section{Bartlett}
+
+C’est en 1949 que Bartlett propose ce qui sera le modèle épidémiologique standard. Au temps
+initial, la population se compose de m infectés et n susceptibles. Chaque infecté a une période de
+contagion qui suit une loi I (moyenne i variance $\sigma$ 2 ) indépendante de celle des autres. Et pendant
+cette période il rencontre un autre individu donné suivant les instants de saut d’un processus de
+Poisson d’intensité $\lambda$/n. Tous ces processus sont indépendants entre eux et des périodes de
+contagion. Ainsi, pendant temps dt, la probabilité qu’un infecté rencontre un individu initialement
+susceptible vaut $\lambda$. On appellera $E_{n,m}(\lambda, I)$ une telle épidémie. Un des paramètres importants dans
+ce modèle est le nombre d’infections attendues par un individu (Basic reproduction number) $R_0 =
+\lambda i$. On verra qu’en fonction de sa valeur, l’épidémie se propage à toute la population ou reste
+confinée à un plus petit nombre d’individus.
+
+\subsection{Loi de poisson}
+
+Une variable aléatoire X suit une loi de poisson si :
+$$ P(X=k) = \exp{-\lambda \frac{\lambda^k}{k!}} $$

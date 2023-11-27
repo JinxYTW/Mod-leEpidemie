@@ -1,0 +1,120 @@
+\documentclass[11pt]{report}
+
+% Imports
+\usepackage[utf8]{inputenc}
+\usepackage[francais]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[margin=2cm, top=2cm, includefoot]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{realboxes}
+\usepackage{framed}
+\usepackage{titlesec}
+\usepackage{caption}
+\usepackage{tabto}
+\usepackage{url}
+\usepackage{csquotes}
+\usepackage{chngcntr} \counterwithout{figure}{chapter}
+\usepackage[hidelinks]{hyperref}
+\usepackage{parskip}
+\usepackage[most]{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{sectsty}
+\usepackage{afterpage}
+
+\usepackage{amsmath}
+
+\graphicspath{{figs/}{../}}
+
+\def\logouniversite{upmc.png} %LOGO
+
+% ----------------------------------------------------
+
+\addto\captionsspanish{\renewcommand{\contentsname}{Índice}}
+
+
+\setlength{\headheight}{40pt}
+\pagestyle{fancy}
+\fancyhf{}
+
+\lhead
+{
+    \includegraphics[height=40pt]{Logo_Esirem.png}
+} 
+
+\renewcommand{\headrulewidth}{3pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{black}\leaders\hrule height \headrulewidth\hfill}}
+
+\titleformat{\chapter}[display]{\normalfont\centering\bfseries}{\vspace{-100pt}}{0pt}{\Huge}
+\titleformat{\section}{\normalfont\scshape}{1em}{\thesection}{\Large}
+
+
+\title{\color{blue}Modèle épidémie SIR en épidémiologie : présentation et illustration}
+\author{TURPIN Yohann, GEHU Lauric, FOSSET Jaurel}
+
+
+% ----------------------------------------------------
+
+\begin{document}
+    \cfoot{\thepage}
+    
+    \makeatletter
+    \begin{titlepage}
+        \reversemarginpar\marginpar
+        {
+            \vspace{-86pt}
+            \hspace*{25pt}
+            \includegraphics[height=3cm]{UBFC.png}%
+        }
+        
+        {\centering
+            \vspace{3cm}
+            \hspace{5cm} \includegraphics[width=.4\textwidth]{Logo_Esirem.png}
+            \par\vspace{5cm}
+            {\scshape\huge\textbf{\hspace{2cm}\@title}} \par\vspace{6cm}
+            
+            {\LARGE
+            \begin{flushright}
+                    \item \@author
+                    \item \today
+            \end{flushright}
+            }
+        }
+    \end{titlepage}
+    \makeatother
+
+
+    \null
+    \thispagestyle{empty}
+    \addtocounter{page}{-1}
+    \newpage
+
+    
+    \tableofcontents
+    \newpage
+
+    \setlength{\abovedisplayskip}{6pt}
+    \setlength{\belowdisplayskip}{6pt}
+
+
+    \input{resume}
+    \input{remerciements}
+    \input{introduction}
+    \input{modeles_deterministes/chapitre}
+    \input{modeles_stochastiques/chapitre}
+    \input{conclusion}
+
+
+    \listoffigures
+    \listoftables
+    \renewcommand{\bibname}{Bibliography}
+    \bibliographystyle{alpha}
+    \bibliography{biblio}
+
+
+    \input{abstract}
+
+\end{document}
