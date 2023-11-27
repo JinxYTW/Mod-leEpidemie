@@ -1,6 +1,6 @@
 \section{Reed et Forst}
 
-Cependant, le modèle SIR dans l’état que nous avons donné, possède certaines incohérence vis à vis
+Le modèle SIR dans l’état que nous avons donné, possède certaines incohérence vis à vis
 de la réalité. En effet, il suppose que chaque individu de la population a une chance égale d'entrer
 en contact avec tous les autres individus, et que la chance de propager l’épidémie est, elle aussi uniforme.
 C’est ici qu’intervient le modèle stochastique de Reed et Frost présenté en 1928, qui redéfinit le
@@ -18,6 +18,9 @@ P(Y_{j+1} = y_{j+1} | X_0 = x_0, Y_0 = y_0, ..., X_j = x_j, Y_j = y_j) &= P(Y_{j
 
 \subsection{Loi Binomiale}
 
-La loi Binomiale est la loi suivis par la variable aléatoire S qui compte le nombre de succés de n expériences de Bernouli consécutives et indépendantes.
-La loi de Bernouli est la loi suivis par l'expérience qui peut résussir avec une probabilités p
+Une variable aléatoire X suit une loi de poisson si :
+$$ P(X = k) = \binom{n}{k}p^k(1 - p)^{n-k} $$
+La loi Binomiale est la loi suivis par la variable aléatoire X qui compte le nombre de succés de n expériences de Bernouli consécutives et indépendantes.
+La loi de Bernouli est la loi suivis par l'expérience qui peut résussir avec une probabilités p.
+
 
