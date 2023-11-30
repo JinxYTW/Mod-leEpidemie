@@ -1,2 +1,32 @@
 \subsection{Le modèle SIR}
-        \subsubsection{Histoire et amélioration}
+
+\begin{frame}
+        \frametitle{Modéle SIR}
+
+        \begin{block}{Définition}
+
+                Modéle divisé en trois groupe :
+                \begin{itemize}
+                        \item Susceptible : personnes saines qui n'ont pas encore contracté la maladie
+                        \item Infectés : les malades qui transemettent activement la maladie
+                        \item Rétablis : les guéris ou mort, qui ne peuvent plus contracté la maladie.
+                \end{itemize}
+
+        \end{block}
+\end{frame}
+
+\begin{frame}
+        \frametitle{Modéle SIR}
+
+        \begin{alertblock}{Propriéter}
+
+                $$\frac{dS}{dt} = -\frac{\beta SI}{N} \qquad \frac{dI}{dt} = \frac{\beta SI}{N} - \gamma I \qquad \frac{dR}{dt} = \gamma I$$
+
+                \begin{itemize}
+                        \item $N$ : taille totale de la population
+                        \item $\beta$ : taux de contact
+                        \item $\gamma$ : taux de guérison.
+                \end{itemize}
+
+        \end{alertblock}
+\end{frame}

@@ -2,8 +2,6 @@
 
 \graphicspath{{figs/}{../}}
 
-\usepackage{babel}
-
 % ----------------------------------------------------
 
 \usetheme{Antibes}
@@ -18,15 +16,12 @@
 
 \begin{document}
     
-    \begin{frame}
-        \titlepage
-    \end{frame}
+    \frame{\titlepage}
+
+    \input{remerciements}
 
     \begin{frame}
-        \input{remerciements}
-    \end{frame}
-
-    \begin{frame}{Outline}
+        \frametitle{Sommaire}
         \tableofcontents
     \end{frame}
 
