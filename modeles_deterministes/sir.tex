@@ -18,9 +18,9 @@
 \begin{frame}
         \frametitle{Modéle SIR}
 
-        \begin{alertblock}{Propriéter}
+        \begin{alertblock}{Equation}
 
-                $$\frac{dS}{dt} = -\frac{\beta SI}{N} \qquad \frac{dI}{dt} = \frac{\beta SI}{N} - \gamma I \qquad \frac{dR}{dt} = \gamma I$$
+                $$ \frac{dS}{dt} = -\frac{\beta SI}{N} \qquad \frac{dI}{dt} = \frac{\beta SI}{N} - \gamma I \qquad \frac{dR}{dt} = \gamma I $$
 
                 \begin{itemize}
                         \item $N$ : taille totale de la population
@@ -28,5 +28,21 @@
                         \item $\gamma$ : taux de guérison.
                 \end{itemize}
 
+        \end{alertblock}
+\end{frame}
+
+\begin{frame}
+        \frametitle{Nombre de reproduction de base ($R_0$)}
+
+        \begin{block}{Définition}
+                Nombre attendu d’infections générées par un individu infectieux dans une grande population susceptible.
+        \end{block}
+
+        \begin{alertblock}{SIR}
+                $$ R_0 =  \lambda i $$
+                \begin{itemize}
+                        \item $i$ : durée moyenne de la période infectieuse
+                        \item $\lambda$ : intensité du processus de Poisson homogène qui modélise les contacts entre les individus infectés et les individus susceptibles
+                \end{itemize}
         \end{alertblock}
 \end{frame}
