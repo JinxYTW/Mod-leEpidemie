@@ -1,8 +1,7 @@
 \documentclass[11pt]{report}
 
-% Imports
-\usepackage[utf8]{inputenc}
-\usepackage[francais]{babel}
+% ----------------------------------------------------
+
 \usepackage[T1]{fontenc}
 \usepackage[margin=2cm, top=2cm, includefoot]{geometry}
 \usepackage{graphicx}
@@ -12,7 +11,6 @@
 \usepackage{realboxes}
 \usepackage{framed}
 \usepackage{titlesec}
-\usepackage{caption}
 \usepackage{tabto}
 \usepackage{url}
 \usepackage{csquotes}
@@ -24,17 +22,16 @@
 \usepackage{tabularx}
 \usepackage{sectsty}
 \usepackage{afterpage}
-
 \usepackage{amsmath}
-
-\graphicspath{{figs/}{../}}
+\usepackage{amssymb}
 
 % ----------------------------------------------------
+
+\graphicspath{{figs/}{../}}
 
 \setlength{\headheight}{40pt}
 \pagestyle{fancy}
 \fancyhf{}
-
 
 \renewcommand{\headrulewidth}{3pt}
 \renewcommand{\headrule}{\hbox to\headwidth{\color{black}\leaders\hrule height \headrulewidth\hfill}}
@@ -42,6 +39,7 @@
 \titleformat{\chapter}[display]{\normalfont\centering\bfseries}{\vspace{-100pt}}{0pt}{\Huge}
 \titleformat{\section}{\normalfont\scshape}{1em}{\thesection}{\Large}
 
+% ----------------------------------------------------
 
 \title{Modèle épidémie SIR en épidémiologie : présentation et illustration}
 \author{TURPIN Yohann, GEHU Lauric, FOSSET Jaurel}
@@ -103,8 +101,5 @@
     \renewcommand{\bibname}{Bibliography}
     \bibliographystyle{alpha}
     \bibliography{biblio}
-
-
-    \input{abstract}
 
 \end{document}
