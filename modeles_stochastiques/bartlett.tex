@@ -1,1 +1,30 @@
 \subsection{Bartlett}
+
+\begin{frame}
+    \frametitle{Bartlett}
+
+    \begin{block}{Définition du Modéle}
+        Au temps initial, la population se compose de m infectés et n susceptibles. Chaque infecté a une période de contagion qui suit une loi I (moyenne $i$ variance $\sigma^2$) indépendante de celle des autres. Et pendant cette période il rencontre un autre individu donné suivant les instants de saut d’un processus de Poisson d’intensité $\frac{\lambda}{n}$.
+    \end{block}
+
+    \begin{itemize}
+        \item Ainsi, pendant un temps $dt$, la probabilité qu’un infecté rencontre un individu initialement susceptible vaut $\lambda$.
+        \item On appellera $E_{n,m}(\lambda, I)$ une telle épidémie.
+        \item $R_0 = \lambda i$ décideras si l'épidémie deviendra une pandémie ou endémie.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Loi de poisson}
+
+    \begin{block}{Définition}
+        Une variable aléatoire X suit une loi de poisson si :
+        $$ P(X=k) = \exp(-\lambda \frac{\lambda^k}{k!}) $$
+    \end{block}
+
+    \begin{itemize}
+        \item Cette loi est dite des événements rares : elle est souvent utilisé pour modéliser le nombre d'occurences d'un phénoménes dans un temps donnés, le phénoméne devant étre rare dans un temps court.
+    \end{itemize}
+
+\end{frame}
