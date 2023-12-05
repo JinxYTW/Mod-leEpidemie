@@ -1,1 +1,49 @@
 \subsection{La construction de Selke}
+
+\begin{frame}
+    \frametitle{Définitions}
+
+    \begin{block}{Construction de Selke}
+        On assigne à chaque individus sains une résistance à l'épidémie, et la totalités des infectés définissent alors une pression de l'épidémie. On compare alors cette pression à la résistance de chaque individus sains pour savoir si il sont deviennent infectés ou reste sains.
+    \end{block}
+
+    \begin{itemize}
+        \item On utilise des chaînes de Markov pour modéliser l'épidémie aux fils du temps
+        \item Le nombre d'infections dans un temps donné est obtenue grâce à un processus de poisson
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Propriéter}
+
+    \begin{block}{Taille Finale}
+        $$ 1 - \tau = e - R_0\tau $$
+    \end{block}
+
+    \begin{itemize}
+        \item $\tau$ est la proportion de la population qui sera infectée à la fin de l’épidémie
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Chaine de Markov}
+
+    \begin{block}{Définition}
+        Une chaîne de Markov est un processus aléatoire à temps discret dont la principale caractéristique est l’absence de mémoire et l’existence de probabilités de transition entre les états de la chaîne. Cela signifie que seul l’état actuel du processus a une influence sur l’état qui va suivre.
+    \end{block}
+
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Propriéter}
+
+        En considérant S un ensemble fini (ou dénombrable) et $(X_n)_{n \in \mathbb{N}}$ une suite de variables aléatoires définie sur le même univers $\Omega$ munit de la mesure de probabilité $\mathbb{P}$ et à valeurs dans S. $(X_n)$ chaîne de Markov homogéne si :
+
+        \begin{itemize}
+            \item \textbf{Propriété de Markov} : $\forall n \in \mathbb{N}$ et $(x_i)^n \in S^n (i \in [[0, n+1]])$ \\
+            $$ \mathbb{P}(X_{n+1} = x_{n+1} | X_{0:n} = x_{0:n}) = \mathbb{P}(X_{n+1} = x_{n+1} | X_n = x_n) $$
+            \item \textbf{Homogénéité} : $\mathbb{P}(X_{n+1} = y | X_n = x)$ ne dépend pas de n, $\forall (x, y) \in S^2$. On note alors $p(x, y)$ cette probabilité.
+        \end{itemize}
+\end{frame}
