@@ -1,13 +1,13 @@
 \begin{frame}
-    \begin{block}{Probléme Modéle SIR}
+    \begin{block}{Probléme modèle SIR}
         \begin{itemize}
-            \item Chance pour un infecté de propagé l'épidémie est uniforme
-            \item Chance de contact avec tous les autres individus est uniforme
+            \item Probabilité pour un infecté de propager l'épidémie est uniforme
+            \item Probabilité de contact avec tous les autres individus est uniforme
         \end{itemize}
     \end{block}
 
     \begin{center}
-        \bf Il nous faut un modéle plus proche de la réalité
+        \bf Il nous faut un modèle plus proche de la réalité
     \end{center}
 \end{frame}
 
@@ -16,7 +16,7 @@
     \frametitle{Reed et Forst}
 
     \begin{block}{Définition}
-        L'infections ménent d'abord à une période infectieuse, puis une période de rétablissement pour aprés finalement finir dans le groupe des immunisés. Les nouvelles infections se produisent par génération, séparées par la période de latence.
+        L'infection méne d'abord à une période infectieuse, puis une période de rétablissement pour finir dans le groupe des immunisés. Les nouvelles infections se produisent par génération, séparées par la période de latence.
     \end{block}
 
     \begin{itemize}
@@ -29,14 +29,16 @@
         \frametitle{Modéle SIR}
 
         \centering
-        \includegraphics[scale=0.25]{sir_stochastique}
+        \includegraphics[scale=0.40]{sir_stochastique}
 
-        \begin{itemize}
-                \item $\gamma = 0.05$
-                \item $\beta = 0.1$
-                \item $N = 1000$
-                \item $I_0 = 10$
-        \end{itemize}
+        \begin{multicols}{2}
+            \begin{itemize}
+                    \item $\gamma = 0.05$
+                    \item $\beta = 0.1$
+                    \item $N = 1000$
+                    \item $I_0 = 10$
+            \end{itemize}
+        \end{multicols}
 
 \end{frame}
 
@@ -48,7 +50,7 @@
     \end{alertblock}
 
     \begin{itemize}
-        \item La loi Binomiale est la loi suivis par la variable aléatoire X qui compte le nombre de succés de n expériences de Bernouli consécutives et indépendantes.
+        \item La loi Binomiale est la loi suivie par la variable aléatoire X qui compte le nombre de succés de n expériences de Bernouli consécutives et indépendantes.
         \item La loi de Bernouli est la loi suivis par l'expérience qui peut résussir avec une probabilités p.
     \end{itemize}
 \end{frame}
