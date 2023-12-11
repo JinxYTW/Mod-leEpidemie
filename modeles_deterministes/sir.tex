@@ -1,38 +1,38 @@
 \subsection{SIR}
 
 \begin{frame}
-        \frametitle{Modéle SIR}
+        \frametitle{Modèle SIR}
 
         \begin{block}{Définition}
 
-                Modéle divisé en trois groupe :
+                Modèle divisé en trois groupe :
                 \begin{itemize}
                         \item Susceptible - personnes saines qui n'ont pas encore contracté la maladie
                         \item Infectés - les malades qui transmettent activement la maladie
-                        \item Rétablis - les perssonnes rétablies ou morte, qui ne peuvent plus contracté la maladie.
+                        \item Rétablis - les personnes rétablies ou mortes, qui ne peuvent plus contracter la maladie.
                 \end{itemize}
 
         \end{block}
 \end{frame}
 
 \begin{frame}
-        \frametitle{Modéle SIR}
+        \frametitle{Modèle SIR}
 
-        \begin{alertblock}{Equation}
+        \begin{alertblock}{Équation}
 
                 $$ \frac{dS}{dt} = -\frac{\beta SI}{N} \qquad \frac{dI}{dt} = \frac{\beta SI}{N} - \gamma I \qquad \frac{dR}{dt} = \gamma I $$
 
                 \begin{itemize}
                         \item $N$ : taille totale de la population
                         \item $\beta$ : taux de contact
-                        \item $\gamma$ : taux de guérison.
+                        \item $\gamma$ : taux de guérison
                 \end{itemize}
 
         \end{alertblock}
 \end{frame}
 
 \begin{frame}
-        \frametitle{Modéle SIR}
+        \frametitle{Modèle SIR}
 
         \centering
         \includegraphics[scale=0.40]{sir_deterministe}
@@ -51,7 +51,7 @@
 \begin{frame}
         \frametitle{Nombre de reproduction de base ($R_0$)}
 
-        Nombre attendu d’infections générées par un individu infectieux dans une grande population susceptible.
+        Nombre attendu d’infection générée par un individu infectieux dans une grande population susceptible.
 
         \begin{alertblock}{SIR}
                 $$ R_0 =  \lambda i $$
