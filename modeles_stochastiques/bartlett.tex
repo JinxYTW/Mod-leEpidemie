@@ -3,10 +3,14 @@
 \begin{frame}
     \frametitle{Bartlett}
 
-    \begin{block}{Définition du modèle}
-        Au temps initial, la population se compose de m infectés et n susceptibles. Chaque infecté a une période de contagion qui suit une loi I (moyenne $i$ variance $\sigma^2$) indépendante de celle des autres. Et pendant cette période il rencontre un autre individu donné suivant les instants de saut d’un processus de Poisson d’intensité $\frac{\lambda}{n}$.
-    \end{block}
+    \begin{itemize}
+        \item Temps initiale : m infectés, n susceptibles.
+        \item Chaque infecté a une période de contagion qui suit une loi I (moyenne $i$ variance $\sigma^2$).
+        \item Pendant cette période il rencontre un nombre d'individus donnés (suivant les instants de saut d’un processus de Poisson d’intensité $\frac{\lambda}{n}$).
+    \end{itemize}
+\end{frame}
 
+\begin{frame}
     \begin{itemize}
         \item Ainsi, pendant un temps $dt$, la probabilité qu’un infecté rencontre un individu initialement susceptible vaut $\lambda$.
         \item On appellera $E_{n,m}(\lambda, I)$ une telle épidémie.
