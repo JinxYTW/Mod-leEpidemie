@@ -3,7 +3,7 @@
 % ----------------------------------------------------
 
 \usepackage{multicol}
-
+\usepackage[export]{adjustbox}
 % ----------------------------------------------------
 
 \graphicspath{{figs/}{../}}
@@ -16,20 +16,33 @@
 \title{Modèles SIR en épidémiologie : présentation et illustration}
 \author{TURPIN Yohann, GEHU Lauric, FOSSET Jaurel}
 \date{\today}
-\logo{\includegraphics[height=0.5cm]{logo_esirem}}
 
+\titlegraphic{
+    \includegraphics[width=2cm]{logo_esirem}
+    \hspace{1cm}
+    \includegraphics[width=1cm]{logo_ub}
+}
+
+\logo{\includegraphics[width=1.5cm]{logo_esirem}}
+
+\setbeamertemplate{footline}{%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \text{L.Gehu, J.Fosset, Y.Turpain}\hfill%
+	\insertframenumber/\inserttotalframenumber\hfill%
+    \insertdate%
+  \end{beamercolorbox}%
+}
 
 % ----------------------------------------------------
 
 \begin{document}
     
-    \frame{\titlepage}
-
+	\frame[plain]{\titlepage}
+	
     \begin{frame}
         \frametitle{Sommaire}
         \tableofcontents
     \end{frame}
-
 
     \input{resume}
 
