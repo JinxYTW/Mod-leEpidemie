@@ -1,30 +1,39 @@
 \subsection{Bartlett}
 
 \begin{frame}
-    \frametitle{Bartlett}
-
-    \begin{block}{Définition du modèle}
-        Au temps initial, la population se compose de m infectés et n susceptibles. Chaque infecté a une période de contagion qui suit une loi I (moyenne $i$ variance $\sigma^2$) indépendante de celle des autres. Et pendant cette période il rencontre un autre individu donné suivant les instants de saut d’un processus de Poisson d’intensité $\frac{\lambda}{n}$.
+    \frametitle{Quelques rappels}
+    \begin{block}{Processus de Poisson}
+        \begin{itemize}
+            \item \textbf{Incrément constant}
+            \item \textbf{Evénement unique}
+            \item \textbf{Indépendance}
+            \item \textbf{Invariance}
+            \item \textbf{Loi de Poisson}
+        \end{itemize}
     \end{block}
-
-    \begin{itemize}
-        \item Ainsi, pendant un temps $dt$, la probabilité qu’un infecté rencontre un individu initialement susceptible vaut $\lambda$.
-        \item On appellera $E_{n,m}(\lambda, I)$ une telle épidémie.
-        \item $R_0 = \lambda i$ décideras si l'épidémie deviendra une pandémie ou endémie.
-    \end{itemize}
-
 \end{frame}
 
 \begin{frame}
-    \frametitle{Loi de poisson}
+    \frametitle{Quelques rappels}
+    \begin{block}{Loi de Poisson}
+        \begin{itemize}
+            \item $ P(X=k) = \exp(-\lambda)\frac{\lambda^k}{k!} $
+        \end{itemize}
+    \end{block}
+\end{frame}
 
-    \begin{block}{Définition}
-        Une variable aléatoire X suit une loi de poisson si :
-        $$ P(X=k) = \exp(-\lambda \frac{\lambda^k}{k!}) $$
+\begin{frame}
+    \frametitle{Bartlett}
+
+    \begin{block}{Histoire}
+        En 1949, le statisticien Maurice S.Bartlett pose ce qui sera le modèle épidémiologique standard.
     \end{block}
 
     \begin{itemize}
-        \item Cette loi est dite des événements rares : elle est souvent utilisée pour modéliser le nombre d'occurrences d'un phénomène dans un temps donné, le phénomène devant être rare dans un temps court.
+        \item La population se compose de m infectés et n susceptibles
+        \item La période de contagion suit une loi I (moyenne $i$, variance $\sigma^2$)
+        \item La probabilité de rencontrer un individu suit un processus de Poisson d’intensité $\frac{\lambda}{n}$
+        \item Cette épidémie est notée $E_{n,m}(\lambda, I)$
     \end{itemize}
-
 \end{frame}
+

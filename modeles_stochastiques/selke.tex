@@ -2,16 +2,16 @@
 
 \begin{frame}
     \frametitle{Définitions}
-
     \begin{block}{Construction de Selke}
-        On assigne à chaque individu sain une résistance à l'épidémie, et la totalité des infectés définissent alors une pression de l'épidémie. On compare alors cette pression à la résistance de chaque individu sain pour savoir si ils deviennent infectés ou reste sains.
+        En 1983,Sellke propose l'idée d'affecter à chaque individu une capacité à résister à l'épidémie,ainsi que l'ajout d'une pression épidémique.
     \end{block}
 
     \begin{itemize}
-        \item On utilise des chaînes de Markov pour modéliser l'épidémie au fil du temps
-        \item Le nombre d'infections dans un temps donné est obtenu grâce à un processus de poisson
+        \item Des chaînes de Markov pour modéliser l'épidémie au fil du temps
+        \item Un processus de Poisson pour modéliser le nombre d'infectés
     \end{itemize}
 \end{frame}
+
 
 \begin{frame}
         \frametitle{Nombre de reproduction de base ($R_0$)}
@@ -24,7 +24,7 @@
 
         \begin{itemize}
                 \item $i$ : durée moyenne de la période infectieuse
-                \item $\lambda$ : intensité du processus de Poisson homogène qui modélise les contacts entre les individus infectés et les individus susceptibles
+                \item $\lambda$ : intensité du processus de Poisson homogène modélisant les contacts entre les individus infectés et les individus susceptibles
         \end{itemize}
 \end{frame}
 
@@ -45,16 +45,14 @@
     \frametitle{Chaine de Markov}
 
     \begin{block}{Définition}
-        Une chaîne de Markov est un processus aléatoire à temps discret dont la principale caractéristique est l’absence de mémoire et l’existence de probabilités de transition entre les états de la chaîne. Cela signifie que seul l’état actuel du processus a une influence sur l’état qui va suivre.
+        Une chaîne de Markov est un processus aléatoire à temps discret dont la principale caractéristique est l’absence de mémoire et l’existence de probabilités de transition entre les états de la chaîne.
     \end{block}
-
-
 \end{frame}
 
 \begin{frame}
     \frametitle{Propriété}
 
-        En considérant S un ensemble fini (ou dénombrable) et $(X_n)_{n \in \mathbb{N}}$ une suite de variables aléatoires définies sur le même univers $\Omega$ munit de la mesure de probabilité $\mathbb{P}$ et à valeurs dans S. $(X_n)$ chaîne de Markov homogéne si :
+        Soient S un ensemble fini (ou dénombrable) et $(X_n)_{n \in \mathbb{N}}$ une suite de variables aléatoires définies sur le même univers $\Omega$ munit de la mesure de probabilité $\mathbb{P}$ et à valeurs dans S. $(X_n)$ est une chaîne de Markov  si :
 
         \begin{itemize}
             \item \textbf{Propriété de Markov} : $\forall n \in \mathbb{N}$ et $(x_i)^n \in S^n (i \in [[0, n+1]])$ \\
@@ -62,3 +60,49 @@
             \item \textbf{Homogénéité} : $\mathbb{P}(X_{n+1} = y | X_n = x)$ ne dépend pas de n, $\forall (x, y) \in S^2$. On note alors $p(x, y)$ cette probabilité.
         \end{itemize}
 \end{frame}
+
+\begin{frame}
+	\frametitle{Définition du modèle}
+	\begin{itemize}
+	\item Les infectés initiaux seront notés $-(m-1), -(m-2), ...  -1, 0$
+	\item Les susceptibles de 1 à $n$
+	\item  A chaque susceptible on associe aussi des seuils $Q_1, Q_n$
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Formule}
+	
+	\begin{block}{Taille finale de l'épidémie}
+          $ Z = \min \{\frac{\lambda}{n} \sum^i_{j = - (m-1)} I_j \} $
+	\end{block}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Formule}
+	\begin{block}{Identité de Wald}
+          $\mathbb{E}[ \frac{ e^{-\theta P(\infty)} }{ \Phi( \frac{\lambda \theta}{n})^{Z + m} } ] = 1 $
+	\end{block}	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Démonstration}
+	\begin{itemize}
+	\item $ \Phi( \frac{\lambda \theta}{n})^{n + m} = \mathbb{E}[e^{-(\frac{\lambda \theta}{n}) \sum^n_{j = - (m-1)} I_j }]$
+	\item $ \mathbb{E}[e^{-(\frac{\lambda \theta}{n}) \sum^i_{j = - (m-1)} I_j }]= \mathbb{E}[e^{- \theta(Z+\frac{\lambda}{n} \sum^n_{j = Z+1} I_j }]$
+	\item $\mathbb{E}[e^{- \theta(Z+\frac{\lambda}{n} \sum^n_{j = Z+1} I_j }]=\mathbb{E}[e^{- \theta Z}\Phi( \frac{\lambda \theta}{n})^{n - Z}]$
+	\item $\mathbb{E}[ \frac{ e^{-\theta P(\infty)} }{ \Phi( \frac{\lambda \theta}{n})^{Z + m} } ] = 1$
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Formule}
+	
+	\begin{block}{Probabilité d'infection }
+          $\sum_{k=0}^{l}\binom{n-k}{l-k}\frac{P_{k}^{n}}{\Phi( \frac{n-l}{n})^{k + m} }=\binom{n}{l}$
+	\end{block}
+
+\end{frame}
+
+

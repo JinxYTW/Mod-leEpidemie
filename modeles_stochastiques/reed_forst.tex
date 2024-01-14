@@ -13,20 +13,66 @@
 
 
 \begin{frame}
-    \frametitle{Reed et Forst}
+    \frametitle{Reed et Frost}
 
-    \begin{block}{Définition}
-        L'infection mène d'abord à une période infectieuse, puis une période de rétablissement pour finir dans le groupe des immunisés. Les nouvelles infections se produisent par génération, séparées par la période de latence.
+    \begin{block}{Histoire}
+        C'est en 1928 que le premier modèle épidémiologique voit le jour grâce aux chercheurs Reed et Frost.
     \end{block}
 
     \begin{itemize}
-        \item Le modèle est généralement utilisé avec une dynamique à temps discret, où la période infectieuse est courte et précédée d’une période de latence plus longue.
-        \item Les probabilités dans chaque génération dépendent de l’état de l’épidémie dans la génération précédente, et sont spécifiées par des probabilités binomiales.
+        \item Le modèle fait intervenir la loi binomiale
+        \item Chaque génération n'est influencé que par la précédente
     \end{itemize}
 \end{frame}
 
+
 \begin{frame}
-        \frametitle{Modèle SIR}
+	\frametitle{Initialisation}
+	\begin{itemize}
+	\item \textbf{Génération successives} Indice t =  0, 1, 2, ...,
+	\item X(t) et Y(t), les susceptibles et infectieux de la génration t
+	\item \textbf{Population fermée} X(0) + Y (0) = n; puis X(t + 1) + Y (t + 1) = X(t) ...
+	\item L'infection suit une loi binomiale
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Loi binomiale}
+
+    \begin{alertblock}{Définition}
+        $ P(X = k) = \binom{n}{k}p^k(1 - p)^{n-k} $
+    \end{alertblock}
+
+    \begin{itemize}
+        \item La loi Binomiale est la loi suivie par la variable aléatoire X qui compte le nombre de succès de n expériences de Bernoulli consécutives et indépendantes.
+        \item La loi de Bernoulli est la loi suivie par l'expérience qui peut réussir avec une probabilité p.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Reed et Forst}
+
+    \begin{alertblock}{Définition}
+        \begin{align}
+            P(Y_{t+1} = k | X_t = x, Y_t = y)= \binom{x}{k}(1 - q^{y})^{k}(q^{y})^{x - k}
+        \end{align}
+    \end{alertblock}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Démonstration}
+	\begin{itemize}
+	\item $P(Y_{t+1} = k | X_0 = x_0, Y_0 = y_0, ..., X_t = x_t, Y_t = y_t) = P(Y_{t+1} = k | X_t = x, Y_t = y)$
+	\item  $P(Y_{t+1} = k | X_t = x, Y_t = y)=\binom{x}{k}p(y)^{k} (1-p(y))^{x-k}$
+	\item $P(Y_{t+1} = k | X_t = x, Y_t = y)= \binom{x}{k}(1 - q^{y})^{k}(q^{y})^{x - k}$
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+        \frametitle{Modèlisation informatique de Reed-Frost}
 
 		\includegraphics[width=0.45\linewidth, height=0.45\textheight, valign=c]{sir_stochastique}
 		\includegraphics[width=0.5\linewidth, height=0.5\textheight, valign=c]{sir_stochastique_python_1}
@@ -42,27 +88,5 @@
 
 \end{frame}
 
-\begin{frame}
-    \frametitle{Reed et Forst}
 
-    \begin{alertblock}{Loi Binomiale}
-        $$ P(X = k) = \binom{n}{k}p^k(1 - p)^{n-k} $$
-    \end{alertblock}
 
-    \begin{itemize}
-        \item La loi Binomiale est la loi suivie par la variable aléatoire X qui compte le nombre de succès de n expériences de Bernoulli consécutives et indépendantes.
-        \item La loi de Bernoulli est la loi suivie par l'expérience qui peut réussir avec une probabilité p.
-    \end{itemize}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Reed et Forst}
-
-    \begin{alertblock}{Définition}
-        \begin{align}
-            P &= P(Y_{j+1} = y_{j+1} | X_0 = x_0, Y_0 = y_0, ..., X_j = x_j, Y_j = y_j) \\
-              &= P(Y_{j+1} = y_{j+1} | X_j = x_j, Y_j = y_j) \\
-              &= \binom{x_j}{y_{j+1}}(1 - q^{y_j})^{y_{j+1}}(q^{y_j})^{x_j - y_{j+1}}
-        \end{align}
-    \end{alertblock}
-\end{frame}
