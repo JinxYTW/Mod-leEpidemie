@@ -1,15 +1,19 @@
 \section{La construction de Selke}
 
-Une construction équivalente, proposée par Sellke en 1983, se base sur l’idée d’affecter à chaque individu une capacité de résistance à l’épidémie et de définir, à partir du nombre d’infectés, une pression de l’épidémie et un critère d’infection sur la résistance de l’individu. Pour y arriver, les chaînes de Markov sont utilisées pour modéliser l’évolution de l’épidémie au fil du temps, en prenant en compte les transitions entre les différents états de l’épidémie (susceptible, infecté, rétabli). Les processus de Poisson sont utilisés pour modéliser le nombre d’infections qui se produisent dans un intervalle de temps donné, en supposant que les infections se produisent de manière aléatoire et indépendante les unes des autres.
+Une construction équivalente, proposée par Sellke en 1983, se base sur l’idée d’affecter à chaque individu une capacité de résistance à l’épidémie et de définir, à partir du nombre d’infectés, une pression de l’épidémie et un critère d’infection sur la résistance de l’individu. \\
+Pour y arriver, les chaînes de Markov sont utilisées pour modéliser l’évolution de l’épidémie au fil du temps, en prenant en compte les transitions entre les différents états de l’épidémie (susceptible, infecté, rétabli). \\
+De plus, le processus de Poisson précedemment définie est aussi utilisé afin de modéliser le nombre d’infections qui se produisent dans un intervalle de temps donné, en supposant que les infections se produisent de manière aléatoire et indépendante les unes des autres.\\
 
-De plus cette construction permet aussi d’identifier un paramètre important quand il s’agit de modéliser une épidémie : sa taille finale. Ici, l’expression de la taille finale de l’épidémie dépend du nombre de reproductions de base $R_0$, qui est le nombre moyen de personnes qu’un individu infecté infecte au début de l’épidémie. Plus le nombre de reproductions de base est élevé, plus la taille finale de l’épidémie sera grande. L’expression de la taille finale de l’épidémie peut être calculée à partir de l’équation $1 - \tau = e - R_0\tau$, où $\tau$ est la proportion de la population qui sera infectée à la fin de l’épidémie.
+De plus cette construction permet aussi d’identifier un paramètre important quand il s’agit de modéliser une épidémie : sa taille finale. Ici, l’expression de la taille finale de l’épidémie dépend du nombre de reproductions de base $R_0$, qui est le nombre moyen de personnes qu’un individu infecté infecte au début de l’épidémie, défini par $R_0 = \lambda i$\\
+Plus le nombre de reproductions de base est élevé, plus la taille finale de l’épidémie sera grande.\\
+L’expression de la taille finale de l’épidémie peut être calculée à partir de l’équation $1 - \tau = e - R_0\tau$, où $\tau$ est la proportion de la population qui sera infectée à la fin de l’épidémie.
 
 
-\subsection{Chaine de Markov}
-
+\subsubsection{Chaine de Markov}
+Rappellons cette notion mathématique.\\
 Une chaîne de Markov est un processus aléatoire à temps discret dont la principale caractéristique est l’absence de mémoire et l’existence de probabilités de transition entre les états de la chaîne. Cela signifie que seul l’état actuel du processus a une influence sur l’état qui va suivre.
 
-En considérant S un ensemble fini (ou dénombrable) et $(X_n)_{n \in \boldsymbol{N}}$ une suite de variables aléatoires définie sur le même univers $\Omega$ munit de la mesure de probabilité $\mathbb{P}$ et à valeurs dans S. $(X_n)$ chaîne de Markov homogéne si :
+En considérant S un ensemble fini (ou dénombrable) et $(X_n)_{n \in \boldsymbol{N}}$ une suite de variables aléatoires définie sur le même univers $\Omega$ munit de la mesure de probabilité $\mathbb{P}$ et à valeurs dans S. $(X_n)$ est chaîne de Markov homogéne si :
 
 \begin{itemize}
     \item \textbf{Propriété de Markov} : $\forall n \in \boldsymbol{N}$ et $(x_i)^n \in S^n (i \in [[0, n+1]])$ \\
@@ -19,31 +23,15 @@ $$ \mathbb{P}(X_{n+1} = x_{n+1} | X_{0:n} = x_{0:n}) = \mathbb{P}(X_{n+1} = x_{n
 
 La loi de $X_0$ est appelée loi initiale de la chaîne de Markov, $P = (p(x, y))_{x,y \in S}$ est appelée matrice de transition.
 
-\subsection{Processus de Poisson}
 
-Soit $(S_1, ..., S_n)$ une suite de variables aléatoires exponentielles indépendantes de paramètre $\lambda$. Posons $T_n = \sum^n_1 S_i (T_0 = 0)$ et $\forall t \in \boldsymbol{R}$ :
 
-\begin{center}
-    $$ N_t = \sum_{n \geq 0} \boldsymbol{1}_{\{T_n \leq t \}} $$
-\end{center}
+\subsection{Définition du modèle}
 
-La famille aléatoire $(N_t)$ s'appelle le \textbf{processus de Poisson standard issu de 0 d'intensité $\lambda$}. Ce processus compte alors le nombre de variables $T_i$ dans $[0, t]$.
-
-Un processus de Poisson à alors les propriéter suivantes :
-\begin{itemize}
-    \item $\forall t$, $N_t$ est finie presque sûrement.
-    \item $\forall \omega$, $t \mapsto N_t$ est croissante, continue à droite, constante par morceaux et ne croît que par sauts de 1.
-    \item $N_{t_-}(\omega)$ limite à gauche de $N_t(\omega)$ aux point t alors $\forall t$, $N_t = N_{t_-}$ presque sûrement.
-    \item $\forall t$, $N_t$ suit une loi de Poisson de paramètre $\lambda t$.
-    \item $\forall (t_1, t_2, ..., t_n)$ tels que $0 < t_1 < t_2 < ... < t_n$ les variables $N_{t_1}$,$N_{t_2} - N_{t_1}$, ..., $N_{t_n} - N_{t_{n-1}}$ sont indépendantes.
-    \item si $s < t$, la loi de $N_t - N_s$ est la même que celle de $N_{t - s}$.
-\end{itemize}
-
-Ces deux dernières propriétés disent que $N$ est un \textbf{processus à acroissements indépendants homogène}.
-
-\subsection{Définition Modèle}
-
-Ainsi, après avoir vu tous les outils qui sont utilisés au sein de ce modèle, revenons-en à sa définition en elle même. Plus précisément, revneons en à ses particularités qui sont les notions de pression et résistance à l'épidémie. On va indexer la population de la façon suivante : les infectés initiaux seront notés $-(m-1), -(m-2), ...  -1, 0$ et les susceptibles de 1 à $n$. On associe à chaque individu un temps de contagion $I-(m-1), ...I_n$ indépendantes et identiquements distribuées de loi I. A chaque susceptible on associe aussi des seuils $Q_1, Q_n$ indépendants et identiquements distribués suivant une loi exponentielle de paramètre 1.
+Ainsi, après avoir vu tous les outils qui sont utilisés au sein de ce modèle, revenons-en à sa définition en elle même. \\
+Plus précisément, revenons-en à ses particularités qui sont les notions de pression et résistance à l'épidémie. On va indexer la population de la façon suivante :\\
+-Les infectés initiaux seront notés $-(m-1), -(m-2), ...  -1, 0$\\
+-Les susceptibles de 1 à $n$.\\
+On associe à chaque individu un temps de contagion $I-(m-1), ...I_n$ indépendantes et identiquements distribuées de loi I. A chaque susceptible on associe aussi des seuils $Q_1, Q_n$ indépendants et identiquements distribués suivant une loi exponentielle de paramètre 1.
 
 On peut alors définir à chaque temps $t$, avec $Y(t)$ le nombre d'infectés, la pression de l'épidémie :
 $$ A(t) = \frac{\lambda}{n} \int^t_0 Y(u)du $$
@@ -52,9 +40,53 @@ Un susceptible $j$ est alors infecté quand la pression dépasse le seuil $Q_j$.
 
 \subsection{Taille finale de l'épidémie}
 
-On réordonne les individus suceptibles en fonction de leur seuil croissant que l'on noteras $Q_1$, ..., $Q_n$. On peut noté que l'épidémie s'arrête lorsque la pression exercée par les individus infectés n'est pas suffisante pour atteindre le prochain seuil. Chaque individus infecté participe à la pression ce qui nous donne la pression exercée aprés la iéme infection : $ \frac{\lambda}{n} \sum^i_{j = - (m-1)} I_j $. Si $Q_{i+1}$ est supérieur à la valeur de la dérniére expression, l'épidémie s'arrête. On a donc que la taille finale de l'épidémie $Z$ est :
+On réordonne les individus suceptibles en fonction de leur seuil croissant que l'on noteras $Q_1$, ..., $Q_n$. \\
+On peut noté que l'épidémie s'arrête lorsque la pression exercée par les individus infectés n'est pas suffisante pour atteindre le prochain seuil. Chaque individus infecté participe à la pression ce qui nous donne la pression exercée aprés la iéme infection : $ \frac{\lambda}{n} \sum^i_{j = - (m-1)} I_j $. Si $Q_{i+1}$ est supérieur à la valeur de la dernière expression, l'épidémie s'arrête.\\
+On a donc que la taille finale de l'épidémie $Z$ est :
 $$ Z = \min \{\frac{\lambda}{n} \sum^i_{j = - (m-1)} I_j \} $$
 
-\textbf{Identité de Wald} :
-$$ \forall \theta \geq 0, \mathbb{E}[ \frac{ e^{-\theta P(\infty)} }{ \Phi( \frac{\lambda \theta}{n})^{Z + m} } ] = 1 $$
+\begin{theorem}[Identité de Wald]
+Soit une épidémie $E_{n,m}(\lambda, I)$ de pression finale Z.Alors $ \forall \theta \geq 0$, on a:\\
+
+$$\mathbb{E}[ \frac{ e^{-\theta P(\infty)} }{ \Phi( \frac{\lambda \theta}{n})^{Z + m} } ] = 1 $$
 où $ \Phi(\theta) = \mathbb{E}[e^{-\theta T}] $ est la fonction de transformée de Laplace de T.
+\end{theorem}
+
+\begin{proof}
+Calculons $ \Phi( \frac{\lambda \theta}{n})^{n + m}$\\
+
+En utilisant la fonction de transformée de Laplace, on obtient :
+	\begin{itemize}[label=$\bullet$]
+	\item $ \Phi( \frac{\lambda \theta}{n})^{n + m} = \mathbb{E}[e^{-(\frac{\lambda \theta}{n}) \sum^n_{j = - (m-1)} I_j }]$
+	\end{itemize}
+En réalisant un changement des bornes à l'insertion de la formule de la taille finale d'une épidémie,on se retrouve avec :
+	\begin{itemize}[label=$\bullet$]
+	\item  $ \mathbb{E}[e^{-(\frac{\lambda \theta}{n}) \sum^i_{j = - (m-1)} I_j }]= \mathbb{E}[e^{- \theta(Z+\frac{\lambda}{n} \sum^n_{j = Z+1} I_j }]$
+	\end{itemize}
+Ce qui nous permet de déduire l'égalité suivant grâce à la fonction de transformée de Laplace :
+	\begin{itemize}[label=$\bullet$]
+	\item $\mathbb{E}[e^{- \theta(Z+\frac{\lambda}{n} \sum^n_{j = Z+1} I_j }]=\mathbb{E}[e^{- \theta Z}\Phi( \frac{\lambda \theta}{n})^{n - Z}]$
+	\end{itemize}	
+On se retrouve ainsi avec l'égalité :	
+	\begin{itemize}[label=$\bullet$]
+	\item $\Phi( \frac{\lambda \theta}{n})^{n + m} =\mathbb{E}[e^{- \theta Z}\Phi( \frac{\lambda \theta}{n})^{n - Z}] $
+	\end{itemize}
+En divisant les deux côtés de l'égalité par $\Phi( \frac{\lambda \theta}{n})^{n + m}$,on se retrouve finalement avec l'identité de Wald :
+	\begin{itemize}[label=$\bullet$]
+	\item $\mathbb{E}[ \frac{ e^{-\theta P(\infty)} }{ \Phi( \frac{\lambda \theta}{n})^{Z + m} } ] = 1$
+	\end{itemize}	
+\end{proof}
+
+De ce précédent théorème, on peut obtenir notre prochain théorème :
+\begin{theorem}
+Dans ce modèle d'épidémie, les probabilitées $P_{k}^{n}$ que k individus initialement susceptibles soit finalement infectés sont décrites par l'expression :
+
+$$\sum_{k=0}^{l}\binom{n-k}{l-k}\frac{P_{k}^{n}}{\Phi( \frac{n-l}{n})^{k + m} }=\binom{n}{l}$$
+\end{theorem}
+
+\begin{proof}
+
+
+\end{proof}
+
+
