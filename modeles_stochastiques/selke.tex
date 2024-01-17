@@ -81,10 +81,25 @@ De ce précédent théorème, on peut obtenir notre prochain théorème :
 \begin{theorem}
 Dans ce modèle d'épidémie, les probabilitées $P_{k}^{n}$ que k individus initialement susceptibles soit finalement infectés sont décrites par l'expression :
 
-$$\sum_{k=0}^{l}\binom{n-k}{l-k}\frac{P_{k}^{n}}{\Phi( \frac{n-l}{n})^{k + m} }=\binom{n}{l}$$
+$$\sum_{k=0}^{l}\binom{N-i}{k-i}\frac{P_{k}^{n}}{\Phi( \frac{\lambda (N-k)}{n})^{i + m} }=\binom{N}{i}$$
 \end{theorem}
 
 \begin{proof}
+Pour démontrer ce résultat nous allons avoir besoin de l'identitté de Wald, ainsi qu'une expression issu de la littérature mathématique que nous allons admettre :
+$ \frac{{p_{i}}^{N}}{\binom{N}{i}}= \frac{{p_{i}}^{k}}{\binom{k}{i}}\left ( \exp(-(N-k)A^{k}|Z^{k}=i)  \right )$\\
+Même si nous l'admetteons nous pouvons tout de même l'expliquer.A la gauche de l'égalite se trouve la probabilité qu'un groupe de taille i soit infecté et personne d'autre.A la droite de l'égalité se trouve deux évenements bien spécifiques.Le premier est la probabilité qu'un sous groupe composé de i personnes soit infectée parmi un groupe de k personnes,tandis que le second évènement est la probabilité que toute personne extérieur au groupe de k personnes ne soient pas infectées,avec une pression totale de l'épidémie égal à i.\\
+
+Désormais nous posons $\theta = N-k$,ainsi qu'une pression épidémique $Z^{k} = i$,et injectons ces données dans l'identité de Wald.
+Nous nous retrouvons donc avec :
+\begin{itemize}[label=$\bullet$]
+	\item $\sum_{i=0}^{k} \frac{ \mathbb{E}[e^{-(N-k) A^{k}}|Z^{k}=i ]}{ \Phi( \frac{\lambda (N-k)}{n})^{i + m} } ]p{_{i}}^{k} = 1$\\
+	Puis on injecte l'équation précedemment admis :\\
+	\item $\sum_{i=0}^{k}\frac{\binom{k}{i}p{_{i}}^{N}}{\binom{N}{i}\Phi( \frac{\lambda (N-k)}{n})^{i + m} } = 1$\\
+	Or,\\
+	\item $\binom{k}{i}/\binom{N}{i} = \binom{N-i}{k-i}\binom{N}{k}$\\
+	Ainsi,on se retrouve avec :\\
+	\item $\sum_{k=0}^{l}\binom{N-i}{k-i}\frac{P_{k}^{n}}{\Phi( \frac{\lambda (N-k)}{n})^{i + m} }=\binom{N}{i}$
+\end{itemize}	
 
 
 \end{proof}

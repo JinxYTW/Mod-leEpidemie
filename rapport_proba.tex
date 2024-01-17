@@ -25,10 +25,11 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
-\usepackage[francais]{babel}
+
+\usepackage[french]{babel}
 \usepackage{blindtext}
 \usepackage{enumitem}
-\newtheorem{theorem}{Theorem}
+\newtheorem{theorem}{Theoreme}
 
 % ----------------------------------------------------
 
@@ -103,8 +104,38 @@
 
     \listoffigures
     \listoftables
-    \renewcommand{\bibname}{Bibliography}
+    \renewcommand{\bibname}{Bibliographie}
     \bibliographystyle{alpha}
-    \bibliography{biblio}
+    \begin{thebibliography}{99} % Vous pouvez ajuster le nombre maximal d'étiquettes
+    \addto\captionsfrench{\renewcommand{\refname}{Bibliographie}}
+	\bibitem{source1}
+	Pierre24
+	\emph{Modéliser une épidémie}.\\
+	\url{https://zestedesavoir.com/tutoriels/3790/modeliser-une-epidemie/}
+	
+	\bibitem{source2}
+	Manon Costa
+	\emph{Modélisation stochastique d’une épidémie SIR}.\\
+	\url{https://www.math.ens.psl.eu/shared-files/10744/?introduction%20au%20domaine%20de%20recherche.pdf}
+	
+	
+	\bibitem{source3}
+	Tom Britton,Etienne Pardoux
+	\emph{Stochastic epidemics in a homogeneous community}.\\
+	\url{https://www.i2m.univ-amu.fr/perso/etienne.pardoux/_media/tb-ep_homogenepid.pdf}
+	
+	\bibitem{source4}
+	H. Andersson, T. Britton
+	\emph{Stochastic Epidemic Models and their Statistical Analysis. Lecture Notes in Statistics, Springer Verlag, 2000.}.\\
+	\url{https://sci-hub.3800808.com/10.1007/978-1-4612-1158-7}
+
+
+
+
+
+	% Ajoutez d'autres entrées de bibliographie au besoin
+
+	\end{thebibliography}
+
 
 \end{document}
