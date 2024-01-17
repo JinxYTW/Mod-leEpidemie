@@ -73,20 +73,19 @@
 \headcommand {\beamer@framepages {29}{29}}
 \headcommand {\slideentry {3}{2}{10}{30/30}{La construction de Selke}{0}}
 \headcommand {\beamer@framepages {30}{30}}
-\headcommand {\beamer@subsectionpages {21}{30}}
-\headcommand {\beamer@subsectionentry {0}{3}{3}{31}{Que fait-on du début de l'épidémie}}
-\headcommand {\beamer@sectionpages {11}{30}}
-\headcommand {\beamer@subsectionpages {31}{30}}
-\headcommand {\sectionentry {4}{Conclusion}{31}{Conclusion}{0}}
-\headcommand {\slideentry {4}{0}{1}{31/31}{}{0}}
+\headcommand {\slideentry {3}{2}{11}{31/31}{La construction de Selke}{0}}
 \headcommand {\beamer@framepages {31}{31}}
-\headcommand {\slideentry {4}{0}{2}{32/32}{}{0}}
+\headcommand {\beamer@subsectionpages {21}{31}}
+\headcommand {\beamer@subsectionentry {0}{3}{3}{32}{Que fait-on du début de l'épidémie}}
+\headcommand {\beamer@sectionpages {11}{31}}
+\headcommand {\beamer@subsectionpages {32}{31}}
+\headcommand {\sectionentry {4}{Conclusion}{32}{Conclusion}{0}}
+\headcommand {\slideentry {4}{0}{1}{32/32}{}{0}}
 \headcommand {\beamer@framepages {32}{32}}
-\headcommand {\beamer@sectionpages {31}{32}}
-\headcommand {\beamer@subsectionpages {31}{32}}
-\headcommand {\sectionentry {5}{Résumé}{33}{Résumé}{0}}
+\headcommand {\slideentry {4}{0}{2}{33/33}{}{0}}
+\headcommand {\beamer@framepages {33}{33}}
 \headcommand {\beamer@partpages {1}{33}}
-\headcommand {\beamer@subsectionpages {33}{33}}
-\headcommand {\beamer@sectionpages {33}{33}}
+\headcommand {\beamer@subsectionpages {32}{33}}
+\headcommand {\beamer@sectionpages {32}{33}}
 \headcommand {\beamer@documentpages {33}}
-\headcommand {\gdef \inserttotalframenumber {32}}
+\headcommand {\gdef \inserttotalframenumber {33}}

@@ -1,7 +1,7 @@
 \subsection{La construction de Selke}
 
 \begin{frame}
-    \frametitle{Définitions}
+    \frametitle{Définition}
     \begin{block}{Construction de Selke}
         En 1983,Sellke propose l'idée d'affecter à chaque individu une capacité à résister à l'épidémie,ainsi que l'ajout d'une pression épidémique.
     \end{block}
@@ -103,6 +103,16 @@
           $\sum_{k=0}^{l}\binom{n-k}{l-k}\frac{P_{k}^{n}}{\Phi( \frac{n-l}{n})^{k + m} }=\binom{n}{l}$
 	\end{block}
 
+\end{frame}
+
+\begin{frame}
+	\frametitle{Démonstration}
+	\begin{itemize}
+	\item $ \frac{{p_{i}}^{N}}{\binom{N}{i}}= \frac{{p_{i}}^{k}}{\binom{k}{i}}\left ( \exp(-(N-k)A^{k}|Z^{k}=i)  \right )$
+	\item $\sum_{i=0}^{k} \frac{ \mathbb{E}[e^{-(N-k) A^{k}}|Z^{k}=i ]}{ \Phi( \frac{\lambda (N-k)}{n})^{i + m} } ]p{_{i}}^{k} = 1$
+	\item $\binom{k}{i}/\binom{N}{i} = \binom{N-i}{k-i}\binom{N}{k}$
+	\item $\sum_{k=0}^{l}\binom{N-i}{k-i}\frac{P_{k}^{n}}{\Phi( \frac{\lambda (N-k)}{n})^{i + m} }=\binom{N}{i}$
+	\end{itemize}
 \end{frame}
 
 
