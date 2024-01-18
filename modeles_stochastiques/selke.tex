@@ -1,8 +1,8 @@
-\section{La construction de Selke}
+\section{La construction de Sellke}
 
 Une construction équivalente, proposée par Sellke en 1983, se base sur l’idée d’affecter à chaque individu une capacité de résistance à l’épidémie et de définir, à partir du nombre d’infectés, une pression de l’épidémie et un critère d’infection sur la résistance de l’individu. \\
 Pour y arriver, les chaînes de Markov sont utilisées pour modéliser l’évolution de l’épidémie au fil du temps, en prenant en compte les transitions entre les différents états de l’épidémie (susceptible, infecté, rétabli). \\
-De plus, le processus de Poisson précedemment définie est aussi utilisé afin de modéliser le nombre d’infections qui se produisent dans un intervalle de temps donné, en supposant que les infections se produisent de manière aléatoire et indépendante les unes des autres.\\
+De plus, le processus de Poisson précédemment défini est aussi utilisé afin de modéliser le nombre d’infections qui se produisent dans un intervalle de temps donné, en supposant que les infections se produisent de manière aléatoire et indépendante les unes des autres.\\
 
 De plus cette construction permet aussi d’identifier un paramètre important quand il s’agit de modéliser une épidémie : sa taille finale. Ici, l’expression de la taille finale de l’épidémie dépend du nombre de reproductions de base $R_0$, qui est le nombre moyen de personnes qu’un individu infecté infecte au début de l’épidémie, défini par $R_0 = \lambda i$\\
 Plus le nombre de reproductions de base est élevé, plus la taille finale de l’épidémie sera grande.\\
@@ -31,17 +31,24 @@ Ainsi, après avoir vu tous les outils qui sont utilisés au sein de ce modèle,
 Plus précisément, revenons-en à ses particularités qui sont les notions de pression et résistance à l'épidémie. On va indexer la population de la façon suivante :\\
 -Les infectés initiaux seront notés $-(m-1), -(m-2), ...  -1, 0$\\
 -Les susceptibles de 1 à $n$.\\
-On associe à chaque individu un temps de contagion $I-(m-1), ...I_n$ indépendantes et identiquements distribuées de loi I. A chaque susceptible on associe aussi des seuils $Q_1, Q_n$ indépendants et identiquements distribués suivant une loi exponentielle de paramètre 1.
+On associe à chaque individu un temps de contagion $I-(m-1), ...I_n$ indépendantes et identiquement distribuées de loi I. A chaque susceptible, on associe également des seuils $Q_1, Q_n$ indépendamments distribués suivant une loi exponentielle de paramètre 1.
 
 On peut alors définir à chaque temps $t$, avec $Y(t)$ le nombre d'infectés, la pression de l'épidémie :
 $$ A(t) = \frac{\lambda}{n} \int^t_0 Y(u)du $$
 
-Un susceptible $j$ est alors infecté quand la pression dépasse le seuil $Q_j$. Il devient contagieux pendant le temps $I_j$
+Un susceptible $j$ est alors infecté quand la pression dépasse le seuil $Q_j$. Il devient contagieux pendant le temps $I_j$.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.35\textwidth]{figs/selk.png}
+\caption{Évolution de l'infection avec un individu infectée}
+\label{fig:selk}
+\end{figure}
 
 \subsection{Taille finale de l'épidémie}
 
 On réordonne les individus suceptibles en fonction de leur seuil croissant que l'on noteras $Q_1$, ..., $Q_n$. \\
-On peut noté que l'épidémie s'arrête lorsque la pression exercée par les individus infectés n'est pas suffisante pour atteindre le prochain seuil. Chaque individus infecté participe à la pression ce qui nous donne la pression exercée aprés la iéme infection : $ \frac{\lambda}{n} \sum^i_{j = - (m-1)} I_j $. Si $Q_{i+1}$ est supérieur à la valeur de la dernière expression, l'épidémie s'arrête.\\
+On peut noter que l'épidémie s'arrête lorsque la pression exercée par les individus infectés n'est pas suffisante pour atteindre le prochain seuil. Chaque individu infecté participe à la pression ce qui nous donne la pression exercée aprés la iéme infection : $ \frac{\lambda}{n} \sum^i_{j = - (m-1)} I_j $. Si $Q_{i+1}$ est supérieur à la valeur de la dernière expression, l'épidémie s'arrête.\\
 On a donc que la taille finale de l'épidémie $Z$ est :
 $$ Z = \min \{\frac{\lambda}{n} \sum^i_{j = - (m-1)} I_j \} $$
 
@@ -87,13 +94,13 @@ $$\sum_{k=0}^{l}\binom{N-i}{k-i}\frac{P_{k}^{n}}{\Phi( \frac{\lambda (N-k)}{n})^
 \begin{proof}
 Pour démontrer ce résultat nous allons avoir besoin de l'identitté de Wald, ainsi qu'une expression issu de la littérature mathématique que nous allons admettre :
 $ \frac{{p_{i}}^{N}}{\binom{N}{i}}= \frac{{p_{i}}^{k}}{\binom{k}{i}}\left ( \exp(-(N-k)A^{k}|Z^{k}=i)  \right )$\\
-Même si nous l'admetteons nous pouvons tout de même l'expliquer.A la gauche de l'égalite se trouve la probabilité qu'un groupe de taille i soit infecté et personne d'autre.A la droite de l'égalité se trouve deux évenements bien spécifiques.Le premier est la probabilité qu'un sous groupe composé de i personnes soit infectée parmi un groupe de k personnes,tandis que le second évènement est la probabilité que toute personne extérieur au groupe de k personnes ne soient pas infectées,avec une pression totale de l'épidémie égal à i.\\
+Même si nous l'admettons nous pouvons tout de même l'expliquer. A la gauche de l'égalite se trouve la probabilité qu'un sous groupe composé de i personnes soit infecté et personne d'autre.A la droite de l'égalité se trouve deux évenements bien spécifiques. Le premier est la probabilité qu'un sous groupe composé de i personnes soit infectée parmi un groupe de k personnes, tandis que le second évènement est la probabilité que toute personne extérieur au groupe de k personnes ne soient pas infectées, avec une pression totale de l'épidémie égale à i.\\
 
 Désormais nous posons $\theta = N-k$,ainsi qu'une pression épidémique $Z^{k} = i$,et injectons ces données dans l'identité de Wald.
 Nous nous retrouvons donc avec :
 \begin{itemize}[label=$\bullet$]
 	\item $\sum_{i=0}^{k} \frac{ \mathbb{E}[e^{-(N-k) A^{k}}|Z^{k}=i ]}{ \Phi( \frac{\lambda (N-k)}{n})^{i + m} } ]p{_{i}}^{k} = 1$\\
-	Puis on injecte l'équation précedemment admis :\\
+	Puis on injecte l'équation précedemment admis un peu plus bas:\\
 	\item $\sum_{i=0}^{k}\frac{\binom{k}{i}p{_{i}}^{N}}{\binom{N}{i}\Phi( \frac{\lambda (N-k)}{n})^{i + m} } = 1$\\
 	Or,\\
 	\item $\binom{k}{i}/\binom{N}{i} = \binom{N-i}{k-i}\binom{N}{k}$\\
