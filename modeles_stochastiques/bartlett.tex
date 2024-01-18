@@ -1,18 +1,39 @@
-\section{Bartlett}
+\section{Les améliorations ammenées par le modèle de Bartlett}
 
-C’est en 1949 que Bartlett propose ce qui sera le modèle épidémiologique standard. Au temps
-initial, la population se compose de m infectés et n susceptibles. Chaque infecté a une période de
-contagion qui suit une loi I (moyenne $i$ variance $\sigma^2$ ) indépendante de celle des autres. Et pendant
-cette période il rencontre un autre individu donné suivant les instants de saut d’un processus de
-Poisson d’intensité $\frac{\lambda}{n}$. Tous ces processus sont indépendants entre eux, ainsi que leur périodes de
-contagion. Ainsi, pendant un temps $dt$, la probabilité qu’un infecté rencontre un individu initialement
-susceptible vaut $\lambda$. On appellera $E_{n,m}(\lambda, I)$ une telle épidémie. Un des paramètres importants dans
-ce modèle est le nombre d’infections attendues par un individu (Basic reproduction number) $R_0 =
-\lambda i$. On verra qu’en fonction de sa valeur, l’épidémie se propage à toute la population ou reste
-confinée à un plus petit nombre d’individus.
+\subsection{Quelques rappels}
+Afin d'introduire et permettre une meilleure compréhension de ce qui va suivre, permettons-nous quelques rappels.
 
-\subsection{Loi de poisson}
+\subsubsection{Processus de Poisson}
+Un processus de Poisson est un type de processus stochastique qui modélise le nombre d'événements se produisant dans un intervalle de temps donné ou sur un intervalle spatial donné.
+De façon plus consciencieuse, elle se définit comme suit :
 
-Une variable aléatoire X suit une loi de poisson si :
-$$ P(X=k) = \exp(-\lambda \frac{\lambda^k}{k!}) $$
-Cette loi est dite des événements rares : elle est souvent utilisé pour modéliser le nombre d'occurences d'un phénoménes dans un temps donnés, le phénoméne devant être rare dans un temps court.
+Soit $(S_1, ..., S_n)$ une suite de variables aléatoires exponentielles indépendantes de paramètre $\lambda$. Posons $T_n = \sum^n_1 S_i (T_0 = 0)$ et $\forall t \in \boldsymbol{R}$ :
+
+\begin{center}
+    $$ N_t = \sum_{n \geq 0} \boldsymbol{1}_{\{T_n \leq t \}} $$
+\end{center}
+
+La famille aléatoire $(N_t)$ s'appelle le \textbf{processus de Poisson standard issu de 0 d'intensité $\lambda$}. Ce processus compte alors le nombre de variables $T_i$ dans $[0, t]$.
+
+Un processus de Poisson à alors les propriéter suivantes :
+	\begin{itemize}[label=$\bullet$]
+    	\item \textbf{Incrément constant} : $\forall \omega$, $t \mapsto N_t$ est croissante, continue à droite, constante par morceaux et ne croît que par sauts de 1, avec  $N_t$ finie presque sûrement.
+    	\item \textbf{Evénement unique} : si $N_{t_-}(\omega)$ désigne la limite à gauche de $N_t(\omega)$ aux point t alors $\forall t$, $N_t = N_{t_-}$ presque sûrement.  	
+    	\item \textbf{Loi de Poisson} : $\forall t$, $N_t$ suit une loi de Poisson de paramètre $\lambda t$.
+    	\item \textbf{Indépendance} : $\forall (t_1, t_2, ..., t_n)$ tels que $0 < t_1 < t_2 < ... < t_n$ les variables $N_{t_1}$,$N_{t_2} - N_{t_1}$, ..., $N_{t_n} - N_{t_{n-1}}$ sont indépendantes.
+    	 \item \textbf{Invariance} : si $s < t$, la loi de $N_t - N_s$ est la même que celle de $N_{t - s}$.
+    	 \end{itemize}
+
+\subsubsection{Loi de poisson}
+On rappelle aussi que si une variable aléatoire X suit une loi de poisson alors on a :\\
+$$ P(X=k) = \exp(-\lambda)\frac{\lambda^k}{k!} $$
+
+    	 
+\subsection{Le modèle de Bartlett}
+Les rappels étant maintenant terminés, revenons-en au modèle de Bartlett.\\
+C’est en 1949 que le statisticien le statisticien Maurice S. Bartlett propose ce qui sera le modèle épidémiologique standard.Celui-ci sera défini ainsi:\\
+Au temps initial, la population se compose de m infectés et n susceptibles. Chaque infecté a une période de contagion qui suit une loi I (moyenne $i$ variance $\sigma^2$ ) indépendante de celle des autres.\\
+Et pendant cette période il rencontre un autre individu donné suivant les instants de saut d’un processus de Poisson d’intensité $\frac{\lambda}{n}$. Ainsi, pendant un temps $dt$, la probabilité qu’un infecté rencontre un individu initialement susceptible vaut $\lambda$. \\
+On appellera $E_{n,m}(\lambda, I)$ une telle épidémie.
+
+

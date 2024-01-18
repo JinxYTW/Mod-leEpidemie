@@ -1,0 +1,36 @@
+\section{Reed et Frost}
+
+Ainsi comme annoncée lors de l'introduction, le modèle déterministe traité juste avant posséde certaines limites et hypothèses simplificatrices faisant de lui, aux premiers abords, un mauvais outil de comparaison avec la réalité.C'est sur ce même constat qu'en 1928, les chercheurs Reed et Frost posent les bases du premier modèle épidémiologique stochastique de type chaîne binomiale, c'est à dire faisant intervenir la loi binomiale.\\
+Dans ce modèle,on trouve des générations successives d’infectieux d’indice t = 0, 1, 2, ..., qui sont juste capables de contaminer une unique génération de susceptibles. Par la suite, ils ne participent plus au processus de l’épidémie. Supposons que la taille de la population soit égale à`une constante n.\\
+On pose  X(t) et Y (t), les nombres respectifs de susceptibles et d’infectieux de la génération t.
+On a donc, comme condition initiale : X(0) + Y (0) = n ; puis  X(t + 1) + Y (t + 1) = X(t), avec t = 0, 1, 2, ... puisque les infectieux et les
+susceptibles de la génération t+1 sont vus comme étant issus des susceptibles de la génération t.\\
+Ensuite, on suppose que le nombre d’infectieux de la génération t + 1 est une variable aléatoire qui suit une loi binomiale de paramètres X(t) et p(Y (t)), cette dernière étant la probabilité qu’un susceptible soit infecté, lorsque le nombre d'infectieux est Y(t).
+Alors,pour décrire tout ce phénomène,on dispose de la formule suivante :\\
+$P(Y_{t+1} = k | X_t = x, Y_t = y)= \binom{x}{k}p(y)^{k} (1-p(y))^{x-k}$.\\
+Or,le modèle de Reed et Frost suppose que la probabilité de ne pas être infectieux lorsque l'on est suceptible est :
+$1-p(y) = (1-p)^{y}$\\
+Ainsi,on se retouve avec la formule suivante :\\
+$P(Y_{t+1} = k | X_t = x, Y_t = y)= \binom{x}{k}(1 - q^{y})^{k}(q^{y})^{x - k}$\\
+
+\begin{proof}
+Calculons $P(Y_{t+1} = k | X_0 = x_0, Y_0 = y_0, ..., X_t = x, Y_t = y)$\\
+Du fait que l'état de la génération (t+1) ne dépends seulement que de la génération t, on a:
+	\begin{itemize}[label=$\bullet$]
+	\item $P(Y_{t+1} = k | X_0 = x_0, Y_0 = y_0, ..., X_t = x_t, Y_t = y_t) = P(Y_{t+1} = k | X_t = x, Y_t = y)$
+	\end{itemize}
+Puis,en appliquant la formule de la probabilité conditionnelle, on aboutit à :
+	\begin{itemize}[label=$\bullet$]
+	\item  $P(Y_{t+1} = k | X_t = x, Y_t = y)=\binom{x}{k}p(y)^{k} (1-p(y))^{x-k}$
+	\end{itemize}
+On rappelle enfin que $1-p(y) = (1-p)^{y}$ , et on injecte cette égalité dans le résultat précédent pour finalemnt obtenir :
+	\begin{itemize}[label=$\bullet$]
+	\item $P(Y_{t+1} = k | X_t = x, Y_t = y)= \binom{x}{k}(1 - q^{y})^{k}(q^{y})^{x - k}$
+	\end{itemize}	
+\end{proof}
+
+
+
+
+
+
